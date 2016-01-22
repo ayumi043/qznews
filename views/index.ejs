@@ -5,15 +5,17 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title><%= title %></title>
     <link href="/assets/css/ionic.min.css" rel="stylesheet">
-    <link href="/app.css" rel="stylesheet">
+    <link href="/assets/css/app.css" rel="stylesheet">
     <script src="/assets/js/ionic.bundle.min.js"></script>
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/controllers.js"></script>
     <script src="/assets/js/services.js"></script>
 </head>
 
-<body>
-Hello
+<body data-ng-init="foo='bar';">
+
+  <ion-nav-view></ion-nav-view>   
+
 </body>
 
 </html>

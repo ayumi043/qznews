@@ -5,6 +5,7 @@ var _            = require('underscore');
 var express      = require('express');
 var router       = express.Router();
 var path         = require('path');
+var fs           = require('fs');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -62,20 +63,37 @@ router.get('/', function (req, res, next) {
   });  
 });
 
-router.get('/task', function (req, res, next) {
+router.post('/task', function (req, res, next) {
     setInterval(function () {
-        console.log('task runing');
-    }, 60 * 60 * 1000);
-    console.log('task~~~');
-    res.send("task~~~~~~");
+        console.log('task runing ~~~');
+    }, 60 * 60 * 1000);    
+    res.send("task starting ~~~");
 });
 
-router.get('/debug', function (req, res, next) {    
-    console.log(__dirname);
+router.get('/debug', function (req, res, next) {
     var root = path.resolve(__dirname, '..');
-    var root1 = path.normalize(__dirname+"/..")  
-    res.send(`dir:${__dirname}; root:${root}; root1:${root1};str:${str}`);
-    //res.send(`dir:${__dirname}; root:${root} ;path:${process.env.PATH}`);
+    console.log(root+'\\README.md');   
+    // fs.readFile(root+'\\README.md', function (err, data) {
+    //     if (err) throw err;
+    //     console.log(data);
+    // });
+    // res.sendfile(root+'\\README.md');
+    
+   
+    var d =new Date();    
+    fs.writeFile('update_at.txt',  d.toLocaleString(), function (err) {
+        if (err) throw err;
+        console.log('It\'s saved!');
+    });    
+   
+    // var stream = fs.createWriteStream("my_file.txt");
+    // stream.once('open', function (fd) {
+    //     stream.write("My first row\r\n");
+    //     stream.write("My second row\r\n");
+    //     stream.end();
+    // });
+    
+    res.send('hello');
 });
 
 
