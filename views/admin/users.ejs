@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>NODE_ENV:<%= process.env.NODE_ENV%></h2>
+    <p>Welcome to <%= title %></p>
+    
+    <hr>
+    <h2>user:</h2>
+    <ul>
+      <% for(var i=0; i<users.length; i++) { %>
+        <li>id:<%= users[i].ID %>  - <%= users[i].NAME %></li>
+      <% } %>
+    </ul>
+    
+    <hr>
+    <h2>article:</h2>
+    <ul>
+      <% for(var i=0; i<articles.length; i++) { %>
+        <li>id:<%= articles[i].ID %>  - <%= articles[i].TITLE %></li>
+      <% } %>
+    </ul> 
+    
+  </body>
+</html>

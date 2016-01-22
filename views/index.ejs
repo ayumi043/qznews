@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <h2>ENV:<%= process.env.NODE_ENV%></h2>
+  <p>Welcome to
+    <%= title %>
+  </p>
+
+  <hr>
+  <h2>user:</h2>
+  <ul>
+    <% for(var i=0; i<users.length; i++) { %>
+      <li>id:
+        <%= users[i].ID %> -
+          <%= users[i].NAME %>
+      </li>
+      <% } %>
+  </ul>
+
+  <hr>
+  <h2>article:</h2>
+  <ul>
+    <% for(var i=0; i < arti_with_comm.length; i++) { %>
+      <li>id:
+          <%= arti_with_comm[i].ID %> - <%= arti_with_comm[i].TITLE %>
+          <ul>
+            <% for(var j=0; j < arti_with_comm[i].Comment.length; j++) { %>
+              <li>
+                CommentID:
+                <%= arti_with_comm[i].Comment[j].CommentID %>-
+                  <%= arti_with_comm[i].Comment[j].CONTENT %>
+              </li>
+              <% } %>
+          </ul>
+      </li>
+      <% } %>
+  </ul>
+
+</body>
+
+</html>

@@ -32,3 +32,13 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+
+node_modules
+.env
+Dockerfile
+docker-compose.yml
+
+bower_components
+typings
+tsd.json
